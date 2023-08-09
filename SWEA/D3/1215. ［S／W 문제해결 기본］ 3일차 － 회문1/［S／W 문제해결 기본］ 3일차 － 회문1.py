@@ -48,3 +48,20 @@ for tc in range(1, 11):
             cnt = 0
 
     print(f'#{tc} {ans}')
+
+'''
+#3
+for t in range(1, 11):
+    N = int(input())
+    MAP = list(input() for _ in range(8))
+    MAP += zip(*MAP)
+    print(MAP)
+    result = 0
+
+    for m in MAP:
+        for i in range(8 - N + 1):
+            if m[i: i + N] == m[i: i + N][::-1]:
+                result += 1
+
+    print(f'#{t} {result}')
+'''
