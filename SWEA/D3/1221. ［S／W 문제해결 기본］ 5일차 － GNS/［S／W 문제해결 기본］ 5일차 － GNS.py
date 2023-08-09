@@ -29,7 +29,29 @@ for _ in range(T):
         elif lst[i] == 'NIN':
             NIN += 1
 
-    print(ZRO, ONE, TWO, THR, FOR, FIV, SIX, SVN, EGT, NIN)
-
     print(tc)
     print('ZRO ' * ZRO, 'ONE ' * ONE, 'TWO ' * TWO, 'THR ' * THR, 'FOR ' * FOR, 'FIV ' * FIV, 'SIX ' * SIX, 'SVN ' * SVN, 'EGT ' * EGT, 'NIN ' * NIN)
+
+'''
+target = ["ZRO", "ONE", "TWO", "THR", "FOR", "FIV", "SIX", "SVN", "EGT", "NIN"]
+
+for _ in range(int(input())):
+    num, lst = map(str, input().split())
+    str_list = list(map(str, input().split()))
+    length = int(lst)
+
+    result = []
+
+    for i in range(10):
+        cnt = 0
+        for STR in str_list:
+            if STR == target[i]:
+                cnt += 1
+
+        result += [target[i]] * cnt
+
+
+    print(num)
+    print(*result)
+
+'''
