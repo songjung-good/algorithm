@@ -18,9 +18,9 @@ for i in range(9):
             lst.pop(j)
             lst.pop(i)
             lst.sort()
-            for i in range(7):
-                print(lst[i])
         if len(lst) == 7:
             break
     if len(lst) == 7:
         break
+for i in range(7):
+    print(lst[i])
