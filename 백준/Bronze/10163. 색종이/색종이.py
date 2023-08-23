@@ -1,5 +1,7 @@
+from sys import stdin
+
 #색종이의 장 수
-N = int(input())
+N = int(stdin.readline())
 #색종이가 놓이는 평면
 field = [[0] * 1001 for _ in range(1001)]
 #답
@@ -7,7 +9,7 @@ cnt_lst = [0] * N
 
 # 좌하단의 좌표 X, Y, 너비, 높이가 순서대로 입력
 for k in range(N):
-    ldx, ldy, wide, height = map(int, input().split())
+    ldx, ldy, wide, height = map(int, stdin.readline().split())
     cnt = 0
     for i in range(ldy, ldy+height):
         for j in range(ldx, ldx+wide):
