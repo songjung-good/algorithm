@@ -1,13 +1,17 @@
 T = int(input())
 for tc in range(1, T+1):
-    bingo = [list(map(str, input())) for _ in range(5)]
+    board = [list(map(str, input())) for _ in range(5)]
     ans = ''
 
-    for i in range(15):
-        for j in range(5):
-            try:
-                ans += bingo[j][i]
-            except:
-                pass
+    while True:
+        stop = 0
+        for i in range(5):
+            if len(board[i]) > 0:
+                word = board[i].pop(0)
+                ans += word
+            else:
+                stop += 1
+        if stop == 5:
+            break
 
     print(f'#{tc} {ans}')
