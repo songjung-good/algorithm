@@ -1,16 +1,16 @@
 '''
 N*N 크기의 도시
 운영 비용 = K * K + (K - 1) * (K - 1)
- 
+
 서비스 범위 만큼 마을 탐색
- 
+
 1. 전체를 다 덮으려면 사이즈 어떻게 할까요?
  1) 전체 집 수, 전체 비용 먼저 탐색
 2. 하나씩 줄이면서 탐색
  1)
  abs(row - center_row) + abs(col - center_col) <= radius:
 '''
- 
+
 #시작 좌표를 기준으로 주변의 집의 수 탐색
 def diamond_search(center_row, center_col, radius):
     house = 0
@@ -26,9 +26,9 @@ def diamond_search(center_row, center_col, radius):
                 if town[row][col] == 1:
                     house += 1
     return house
- 
- 
- 
+
+
+
 T = int(input())
 for tc in range(1, T+1):
     #N 마을의 크기, M 가구 당 지불 가능 비용
@@ -62,5 +62,5 @@ for tc in range(1, T+1):
                         if ans < house_cnt:
                             ans = house_cnt
                             break
- 
+
     print(f'#{tc} {ans}')
