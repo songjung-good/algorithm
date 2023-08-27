@@ -1,27 +1,25 @@
-#3 하향 방향탐색
-
 T = int(input())
-for tc in range(1, T+1):
-    #판의 사이즈
-    size = int(input())
-    #판의 모양
-    board = [list(map(str, input())) for _ in range(size)]
-    di = [0, 1, 1, 1]
-    dj = [1, 1, 0, -1]
-    ans = 'NO'
+for t in range(1, T+1):
+    N = int(input())
+    MAP = [[0]* N for _ in range(N)]
+    res = 'NO'
+    for i in range(N):
+        string = input()
+        for j in range(N):
+            if string[j] == 'o':
+                MAP[i][j] = 1
 
-    for i in range(size):
-        for j in range(size):
-            if board[i][j] == 'o':
-                for k in range(4):
-                    for a in range(1, 5):
-                        ni = i + di[k]*a
-                        nj = j + dj[k]*a
-                        if 0<= ni < size and 0 <= nj < size:
-                            if board[ni][nj] != 'o':
-                                break
-                            else:
-                                if a == 4:
-                                    ans = 'YES'
+    for k in range(N):
+        for l in range(N):
+            for dx, dy in [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]]:
+                cnt = 0
+                for n in range(5):
+                    nx, ny = k + (dx * n), l + (dy * n)
+                    if 0 <= nx < N and 0 <= ny < N:
+                        if MAP[nx][ny] == 1:
+                            cnt += 1
+                if cnt == 5:
+                    res = 'YES'
+                    break
 
-    print(f'#{tc} {ans}')
+    print(f'#{t} {res}')
