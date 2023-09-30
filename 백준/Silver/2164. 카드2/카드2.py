@@ -1,18 +1,25 @@
+import sys
+from collections import deque
+input = sys.stdin.readline
+
 N = int(input())
-lst = list(range(1, N+1))
-new = []
-while len(lst) != 1:
-    length = len(lst)
-    mid = length // 2
-    if length % 2 == 0:
-        for i in range(mid):
-            new.append(lst[i*2+1])
-        lst = new
-        new = []
-    else:
-        new.append(0)
-        for i in range(mid):
-            new.append(lst[i*2+1])
-        lst = new
-        new = []
-print(*lst)
+queue = deque(range(0, N+1, 2))
+queue.popleft()
+
+if N == 1:
+    print(1)
+
+elif N == 2:
+    print(2)
+    
+elif N % 2 == 1:
+    while len(queue) > 1:
+        queue.append(queue.popleft())
+        queue.popleft()
+    print(queue[0])
+
+else:
+    while len(queue) > 1:
+        queue.popleft()
+        queue.append(queue.popleft())
+    print(queue[0])
