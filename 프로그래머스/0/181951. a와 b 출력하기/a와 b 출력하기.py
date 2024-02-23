@@ -1,0 +1,5 @@
+a, b = map(int, input().strip().split(' '))
+A = str(a)
+B = str(b)
+print(f'a = {A}')
+print(f'b = {B}')
