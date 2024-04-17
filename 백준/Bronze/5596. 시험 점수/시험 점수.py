@@ -1,0 +1,6 @@
+A_lst = list(map(int, input().split()))
+B_lst =list(map(int, input().split()))
+A= sum(A_lst)
+B= sum(B_lst)
+ans = max(A,B)
+print(ans)
