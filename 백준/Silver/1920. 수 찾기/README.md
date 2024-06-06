@@ -1,6 +1,7 @@
 # [Silver IV] 수 찾기 - 1920 
 
 [문제 링크](https://www.acmicpc.net/problem/1920) 
+[참고](https://velog.io/@kimdukbae/%EC%9D%B4%EB%B6%84-%ED%83%90%EC%83%89-%EC%9D%B4%EC%A7%84-%ED%83%90%EC%83%89-Binary-Search)
 
 ### 성능 요약
 
