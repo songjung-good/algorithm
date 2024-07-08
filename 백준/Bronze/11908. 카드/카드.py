@@ -1,0 +1,5 @@
+A = int(input())
+B = list(map(int, input().split()))
+B.sort()
+B.pop(A-1)
+print(sum(B))
