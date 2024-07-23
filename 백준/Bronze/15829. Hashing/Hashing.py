@@ -1,11 +1,12 @@
-# 입력 개수
-N = int(input())
-# 단어
-L = input().upper()
-num = 0
+L = int(input())
+WORD = str(input())
+
+r = 31
+M = 1234567891
 ans = 0
-for i in L:
-    ans += (ord(i) - ord('A') + 1) * (31**num)
-    num += 1
+
+for idx, i in enumerate(WORD):
+    number = ord(i) - 96
+    ans = (ans + number * (r ** idx)) % M
 
 print(ans)
