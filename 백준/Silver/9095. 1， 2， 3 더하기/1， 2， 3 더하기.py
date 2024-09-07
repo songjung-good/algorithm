@@ -1,14 +1,18 @@
-t=int(input())
-dp=[0]*20
-dp[0]=0
-dp[1]=1
-dp[2]=2
-dp[3]=4
-dp[4]=7
-for i in range(5,15):
-    dp[i]=dp[i-1]+dp[i-2]+dp[i-3]
+import sys
+input = sys.stdin.readline
 
-for i in range(t):
-    n=int(input())
-    print(dp[n])
-    
+def plus(n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    elif n == 3:
+        return 4
+    else:
+        return plus(n-1) + plus(n-2) + plus(n-3)
+
+
+N = int(input())
+for n in range(N):
+    A = int(input())
+    print(plus(A))
