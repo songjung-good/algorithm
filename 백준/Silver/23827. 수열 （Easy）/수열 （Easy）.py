@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 N = int(input())
 N_lst = list(map(int, input().split()))
 M_lst = [0] * N
