@@ -1,14 +1,11 @@
 N, M = map(int, input().split())
-N_lst = list(map(int, input().split()))
-N_lst.sort()
-lst = [0] * M
+numbers = sorted(map(int, input().split()))
 
-def num(lst, n, m):
-    if m == M:
-        print(*lst)
-    else:
-        for i in range(n, N):
-            lst[m] = N_lst[i]
-            num(lst, i, m+1)
+def generate_sequence(sequence, start):
+    if len(sequence) == M:
+        print(*sequence)
+        return
+    for i in range(start, N):
+        generate_sequence(sequence + [numbers[i]], i)
 
-num(lst, 0, 0)
+generate_sequence([], 0)
