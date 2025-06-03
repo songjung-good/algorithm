@@ -4,7 +4,7 @@ dp[0] = 1
 dp[1] = 1
 
 def fibo(num):
-    global fibo_len, dp
+    global fibo_len
     if fibo_len >= num:
         return dp[num-1]
     else:
