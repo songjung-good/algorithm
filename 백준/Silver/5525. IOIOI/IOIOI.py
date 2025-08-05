@@ -3,16 +3,20 @@ input = sys.stdin.readline
 
 N = int(input())
 M = int(input())
-word = input()
+S = input().strip()
 
-start = 0
-end = M - (N * 2)
-ans = 0
-while start < end:
-    if word[start] == 'I':
-        now=start + 1
-        if word[now:now+N*2] == 'OI' * N:
-            ans += 1
-    start += 1
+cnt = 0
+answer = 0
+i = 1
 
-print(ans)
+while i < M - 1:
+    if S[i-1:i+2] == "IOI":
+        cnt += 1
+        if cnt >= N:
+            answer += 1
+        i += 2
+    else:
+        cnt = 0
+        i += 1
+
+print(answer)
