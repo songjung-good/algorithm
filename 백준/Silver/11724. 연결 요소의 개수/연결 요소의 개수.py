@@ -1,17 +1,15 @@
 import sys
-from collections import deque
 input = sys.stdin.readline
+sys.setrecursionlimit(2000)
 
 def bfs(num):
-    Q = deque(graph[num])
-    while Q:
-        now = Q.popleft()
-        visited[now] = True
-        for i in graph[now]:
-            if i in Q or visited[i]:
-                pass
-            else:
-                Q.append(i)
+    lst = graph[num]
+    for i in lst:
+        if visited[i]:
+            pass
+        else:
+            visited[i] = True
+            bfs(i)
 
 # N은 정점의 수, M은 간선의 수
 N, M = map(int,input().split())
