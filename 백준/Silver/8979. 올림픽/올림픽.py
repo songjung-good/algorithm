@@ -1,19 +1,23 @@
-import sys
-input = sys.stdin.readline
+N, K = map(int, input().split())
+countries = []
 
-N, M = map(int, input().split())
-MAP = [list(map(int, input().split())) for _ in range(N)]
+for _ in range(N):
+    idx, g, s, b = map(int, input().split())
+    countries.append((idx, g, s, b))
 
-MAP.sort(key=lambda x: (-x[1], -x[2], -x[3]))
+# 금 > 은 > 동 기준 내림차순 정렬
+countries.sort(key=lambda x: (-x[1], -x[2], -x[3]))
 
-rank = {MAP[0][0]: 1}
-now = 1
+rank = 1
+ranks = dict()
+ranks[countries[0][0]] = rank
 
 for i in range(1, N):
-    if MAP[i][1:] == MAP[i-1][1:]:
-        rank[MAP[i][0]] = now
+    # 이전 국가와 메달 수가 모두 같으면 같은 순위
+    if countries[i][1:] == countries[i-1][1:]:
+        ranks[countries[i][0]] = rank
     else:
-        now += 1
-        rank[MAP[i][0]] = now
+        rank = i + 1
+        ranks[countries[i][0]] = rank
 
-print(rank[M])
+print(ranks[K])
