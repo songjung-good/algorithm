@@ -4,7 +4,7 @@ input = sys.stdin.readline
 N, M = map(int, input().split())
 MAP = [list(map(int, input().split())) for _ in range(N)]
 
-MAP.sort(key=lambda x: (-x[1], -x[2], -x[-3]))
+MAP.sort(key=lambda x: (-x[1], -x[2], -x[3]))
 
 rank = {MAP[0][0]: 1}
 now = 1
