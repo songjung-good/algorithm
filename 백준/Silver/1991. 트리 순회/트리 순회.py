@@ -1,79 +1,42 @@
-def preorder(root):
-    global pre
-    pre.append(root)
-    if ch_l[root] == 0 and ch_r[root] == 0:
-        return
-    else:
-        if ch_l[root] != 0:
-            preorder(ch_l[root])
-        if ch_r[root] != 0:
-            preorder(ch_r[root])
+from collections import deque
+import sys
+input = sys.stdin.readline
 
 
-def inorder(root):
-    global inr
-
-    if ch_l[root] == 0 and ch_r[root] == 0:
-        inr.append(root)
-        return
-
-    else:
-        if ch_l[root] != 0:
-            inorder(ch_l[root])
-        inr.append(root)
-        if ch_r[root] != 0:
-            inorder(ch_r[root])
-
-
-def postorder(root):
-    global post
-
-    if ch_l[root] == 0 and ch_r[root] == 0:
-        post.append(root)
-        return
-
-    else:
-        if ch_l[root] != 0:
-            postorder(ch_l[root])
-        if ch_r[root] != 0:
-            postorder(ch_r[root])
-        post.append(root)
-
+graph = [[0,0] for _ in range(27)]
 
 N = int(input())
-P = [0] * 27
-ch_l = [0] * 27
-ch_r = [0] * 27
 for _ in range(N):
-    p, l, r = input().split()
-    p = ord(p) - 64
-
+    n, l, r = input().split()
+    n = ord(n) - 64
     if l != '.':
-        l = ord(l) - 64
-        P[l] = p
-        ch_l[p] = l
+        graph[n][0] = ord(l) - 64
     if r != '.':
-        r = ord(r) - 64
-        P[r] = p
-        ch_r[p] = r
+        graph[n][1] = ord(r) - 64
 
-pre = []
-inr = []
-post = []
+def preorder(now):
+    if now == 0:
+        return
+    print(chr(now + 64), end='')
+    preorder(graph[now][0])
+    preorder(graph[now][1])
 
-preorder(1), inorder(1), postorder(1)
+def inorder(now):
+    if now == 0:
+        return
+    inorder(graph[now][0])
+    print(chr(now + 64), end='')
+    inorder(graph[now][1])
 
-ans_pre = ''
-for pr in pre:
-    ans_pre += chr(pr + 64)
-print(ans_pre)
+def postorder(now):
+    if now == 0:
+        return
+    postorder(graph[now][0])
+    postorder(graph[now][1])
+    print(chr(now + 64), end='')
 
-ans_inr = ''
-for ir in inr:
-    ans_inr += chr(ir + 64)
-print(ans_inr)
-
-ans_post = ''
-for po in post:
-    ans_post += chr(po + 64)
-print(ans_post)
+preorder(1)
+print()
+inorder(1)
+print()
+postorder(1)
