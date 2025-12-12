@@ -1,3 +1,3 @@
-n = int(input())
-up = str(pow(5, n))
-print('0.' + '0' * (n - len(up)) + up)
+n=int(input())
+x='.'+str(n)+'f'
+print(f'{1/2**n:{x}}')
