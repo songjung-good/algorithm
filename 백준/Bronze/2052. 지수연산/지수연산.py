@@ -1,3 +1,2 @@
-n=int(input())
-x='.'+str(n)+'f'
-print(f'{2**-n:{x}}')
+n=input()
+print(f'{2**-int(n):.{n}f}')
