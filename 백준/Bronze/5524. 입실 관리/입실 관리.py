@@ -1,5 +1,4 @@
 N = int(input())
-for n in range(N):
-    word=input()
-    ans=word.lower()
-    print(ans)
+for _ in range(N):
+    word = input()
+    print(word.lower())
