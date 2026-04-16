@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 def check_sq(x, y, i):
     min_r, max_r = x//3*3, x//3 * 3 + 3
     min_c, max_c = y//3*3, y//3 * 3 + 3
