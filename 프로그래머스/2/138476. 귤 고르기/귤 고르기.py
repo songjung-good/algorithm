@@ -1,19 +1,16 @@
 def solution(k, tangerine):
     answer = 0
-    size = {}
-    for i in tangerine:
-        if i in size:
-            size[i] = size[i] + 1
-        else:
-            size[i] = 1
-
-    sorted_size = sorted(size.items(), key = lambda x: x[1], reverse=True)
+    lst = [0] * 10_000_001
     
-    cnt = 0
-    for s, c in sorted_size:
+    for t in tangerine:
+        lst[t] += 1
+    
+    lst.sort(reverse=True)
+    
+    for l in lst:
+        k -= l
         answer += 1
-        cnt += c
-        if cnt >= k:
+        if k <= 0:
             break
-        
+    
     return answer
